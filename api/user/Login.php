@@ -1,9 +1,9 @@
 <?php
 
+require '../dbconfig.php';
 $uname=$_REQUEST['uname'];
 $password=$_REQUEST['password'];
 
-$con=mysqli_connect("localhost","root","","shopingcard");
 
 $query="select uname,password from users where uname='$uname' AND password='$password'";
 

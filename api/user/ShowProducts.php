@@ -1,4 +1,6 @@
 <?php
+
+require '../dbconfig.php';
 class Product{
 	public $pid="";
 	public $cid="";
@@ -10,7 +12,6 @@ class Product{
 }
 $cid=$_REQUEST['cid'];
 $products=array();
-$con=mysqli_connect("localhost","root","","shopingcard");
 
 
 $query="select * from product where cid=$cid";

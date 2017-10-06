@@ -1,10 +1,11 @@
 <?php
+
+require '../dbconfig.php';
 class Categories{
 	public $cid="";
 	public $cname="";
 }
 $products=array();
-$con=mysqli_connect("localhost","root","","shopingcard");
 $arr=array();
 $query="select * from category ";
 $result=mysqli_query($con, $query) or die("0");

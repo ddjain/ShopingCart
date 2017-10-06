@@ -1,4 +1,6 @@
 <?php
+
+require '../dbconfig.php';
 class Product{
 	public $pid="";
 	public $pname="";
@@ -9,7 +11,6 @@ class Product{
 	
 }
 $arr=array();
-$con=mysqli_connect("localhost","root","","shopingcard");
 session_start();
 	for ($i = 0; $i <count( $_SESSION['cart']); $i++) {
 		

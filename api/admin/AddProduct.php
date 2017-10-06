@@ -1,5 +1,6 @@
 <?php
 
+require '../dbconfig.php';
 $pcid=$_REQUEST['pcid'];
 $pname=$_REQUEST['pname'];
 
@@ -9,8 +10,6 @@ $pavailable=$_REQUEST['pavailable'];
 $pdes=$_REQUEST['pdes'];
 $pdis=$_REQUEST['pdis'];
 
-
-$con=mysqli_connect("localhost","root","","shopingcard");
 
 $query="insert into product (cid,pname,pprice,pavailable,pdescription,discount) value ($pcid,'$pname','$pprice','$pavailable','$pdes',$pdis)";
 

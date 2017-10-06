@@ -1,5 +1,6 @@
 <?php
-$con=mysqli_connect("localhost","root","","shopingcard");
+
+require '../dbconfig.php';
 
 $uname=$_REQUEST['uname'];
 $password=$_REQUEST['password'];
