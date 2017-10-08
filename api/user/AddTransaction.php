@@ -46,7 +46,7 @@ class Product{
 								$i++;
 							
 				}
-	
+	$_SESSION['Status']=1;
 	header("location:../../ShowInvoice.php");
 }
 else{

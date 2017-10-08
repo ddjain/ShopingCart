@@ -461,6 +461,21 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
     font-size: 36px;
     color: #fff;
 }
+
+.h2-bg{
+    margin: 30px 0;
+    background: repeating-linear-gradient(
+        -45deg,
+        #e6f4ff,
+        #e6f4ff 2px,
+        #fff 3px,
+        #fff 8px
+);
+}
+.h2-bg-white{
+    background: #fff;
+    padding: 1px 20px;
+}
 </style>
 <script>
 function openNav() {
@@ -500,6 +515,14 @@ $scope.addPrduct=function(cid){
 	$http.get("api/user/ShowProducts.php?cid="+cid)
 	  .then(function(response) {
 	      $scope.product = response.data; 
+
+	      $http.get("api/user/GetCategory.php?cid="+cid)
+		  .then(function(response) {
+			 
+		      $scope.cat = response.data; 		 
+		  });
+
+	  
 	  });
 	};
 	
@@ -521,7 +544,8 @@ $scope.myFunc=function(pid){
 	$http.get("api/user/ShowProducts.php?cid=1")
   .then(function(response) {
       $scope.product = response.data; 
-  });
+      $scope.cat = "Electronics"; 
+        });
 
 	$http.get("api/user/CartCount.php")
 	  .then(function(response) {
@@ -536,7 +560,14 @@ require 'master.php';
 ?>
 <body ng-app="myApp" ng-controller="myCtrl">
 <br>
-<div  >
+<div>
+
+<div class="container">
+	<div class="row">
+		<h2 class="h2-bg text-center"><span class="h2-bg-white">{{cat}}</span></h2>
+	</div>
+</div>
+
 
 
 <div class="container" >

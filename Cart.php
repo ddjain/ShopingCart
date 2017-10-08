@@ -1,4 +1,8 @@
-<?php session_start();?>
+<?php session_start();
+if(!isset($_SESSION['cart'])){
+	echo "<script>alert('Nothing is in yout Cart go back to shop')</script>";
+}
+?>
 
 <html>
 <head>

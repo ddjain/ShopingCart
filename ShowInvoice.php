@@ -1,4 +1,20 @@
+<?php 
+session_start();
 
+if(isset($_SESSION['user'])){
+	if($_SESSION['Status']!=1){
+		header("location:.");
+	}
+	else{
+		
+		
+	}
+}
+else{
+	
+	header("location:login.php?msg=Please Login To Continue");
+}
+?>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -14,7 +30,7 @@ function prints(){
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $http) {
 
-	$http.get("api/user/GetUserDetails.php?uid="+<?php session_start(); echo $_SESSION['uid'];?>)
+	$http.get("api/user/GetUserDetails.php?uid="+<?php  echo $_SESSION['uid'];?>)
 	  .then(function(response) {
 	      $scope.user = response.data;  
 	      alert(user.data);
