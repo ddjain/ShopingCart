@@ -15,7 +15,7 @@ class Product{
 }
 
 		//Obtaining Transaction ID
-		$query="select count(*) as cnt from transaction";
+		$query="select max(tid) as cnt from transaction";
 		$result=mysqli_query($con, $query) or die("0");
 				if($row=mysqli_fetch_assoc($result))
 				{

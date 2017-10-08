@@ -482,6 +482,7 @@ function closeNav() {
                 <li class="upper-links"><a class="links" href="https://campusbox.org/"></a></li>
                 <li class="upper-links"><a class="links"  ></a></li>
                 <li class="upper-links"><a class="links"  > </a></li>
+                <li class='upper-links'>HOME</li>
                 <li class='upper-links'>Welcome 
                 <?php 
             
@@ -496,7 +497,7 @@ function closeNav() {
                 ?>
                 
                 </li>
-
+				
                 <li class="upper-links"><a class="links" href="login.php"> <?php 
                 
                 if(isset($_SESSION['user'])){
