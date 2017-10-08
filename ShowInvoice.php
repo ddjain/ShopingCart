@@ -21,7 +21,7 @@ app.controller('myCtrl', function($scope, $http) {
 	  });
 
 
-	$http.get("api/user/ShowBill.php")
+	$http.get("api/user/ShowBill.php?del=1")
   .then(function(response) {
       $scope.products = response.data;
       var grand=0;
@@ -59,7 +59,7 @@ app.controller('myCtrl', function($scope, $http) {
     <div class="row">
         <div class="col-xs-12">
     		<div class="invoice-title">
-    			<h2>Invoice</h2><h3 class="pull-right">Order  ONG12345</h3>
+    			<h2>Invoice</h2><h3 class="pull-right">ORDER ID: <?php  echo $_SESSION['tid']; ?></h3>
     		</div>
     		<hr>
     		<div class="row">
@@ -68,6 +68,7 @@ app.controller('myCtrl', function($scope, $http) {
         			<strong>Shipped To:</strong><br>
     					{{user.name}}<br>
     					{{user.address}}<br>
+    					+91{{user.mobile}}
     					
     				</address>
     			</div>
@@ -77,7 +78,7 @@ app.controller('myCtrl', function($scope, $http) {
     				<address>
     					<strong>Payment Method:</strong><br>
     					Cash on delivery<br>
-    					nehaDeshmukh@gmail.com
+    					
     				</address>
     			</div>
     			<div class="col-xs-6 text-right">

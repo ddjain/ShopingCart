@@ -36,5 +36,8 @@ session_start();
 		
 	}
 	
+	if(isset($_REQUEST['del'])){
+		unset ( $_SESSION['cart'] ) ;
+	}
 		echo json_encode($arr);
 ?>

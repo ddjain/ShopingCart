@@ -18,6 +18,14 @@ function prints(){
 }
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $http) {
+
+	$http.get("api/user/ShowCategory.php")
+	  .then(function(response) {
+	      $scope.category = response.data;
+	   //   alert(response.data);
+	  });
+	
+	
   $http.get("api/user/ShowBill.php")
   .then(function(response) {
       $scope.products = response.data;
@@ -104,7 +112,7 @@ require 'master.php';
                             <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
                         </button></td>
                         <td>
-                        <button type="button" class="btn btn-success" onclick='window.location.href = "api/user/ValidForBill.php";'>
+                        <button type="button" class="btn btn-success" onclick='window.location.href = "api/user/AddTransaction.php";'>
                             Checkout <span class="glyphicon glyphicon-play"></span>
                         </button></td>
                     </tr>
