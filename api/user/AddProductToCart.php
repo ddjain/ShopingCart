@@ -16,7 +16,7 @@ for ($i = 0; $i <count( $_SESSION['cart']); $i++) {
 	if($pid === $cpid){
 		$qty1=$_SESSION['cart'][$i];
 		$_SESSION['cart'][$i]=$qty1+$qty;
-	    echo"Product +1... Total Product=".$_SESSION['cart'][$i];
+	    echo"Product Added +1 \nTotal Product=".$_SESSION['cart'][$i];
 		$flag=1;
 		break;
 	}

@@ -1,5 +1,4 @@
 <?php
-
 require '../dbconfig.php';
 $pid=$_REQUEST['pid'];
 

@@ -7,7 +7,7 @@
 <table style="margin-left: 700px">
   <tr ng-repeat="x in category">
     <td><h2>{{ x.cid }}</h2></td>
-    <td><h2><a ng-href="product.php?cid={{x.cid}}">{{ x.cname }}</a></h2></td>
+    <td><h2><a ng-href="product.php?cid={{x.cid}}" >{{ x.cname }}</a></h2></td>
   </tr>
 </table>
 

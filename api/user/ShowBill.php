@@ -6,8 +6,9 @@ class Product{
 	public $pname="";
 	public $pprice="";
 	public $qty="";
-	
+	public $img="";
 	public $ptotal="";
+	public $discount="";
 	
 }
 $arr=array();
@@ -27,6 +28,8 @@ session_start();
 					$p->pprice=$row['pprice'];
 					$p->qty=$qty;
 					$p->ptotal=$row['pprice']*$qty;
+					$p->discount=$row['discount'];
+					$p->img=$row['image'];	
 					array_push($arr, $p);	
 				}
 		$i++;

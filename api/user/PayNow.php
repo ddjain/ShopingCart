@@ -1,5 +1,4 @@
 <?php
-
 require '../dbconfig.php';
 class Product{
 	public $pid="";
