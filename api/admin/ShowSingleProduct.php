@@ -8,6 +8,7 @@ class Product{
 	public $pprice="";
 	public $pavailable="";
 	public $pdescription="";
+	public $image="";
 }
 
 $pid=$_REQUEST['pid'];
@@ -25,6 +26,7 @@ if($row=mysqli_fetch_assoc($result))
 	$p->pprice=$row['pprice'];
 	$p->pavailable=$row['pavailable'];
 	$p->pdescription=$row['pdescription'];
+	$p->image=$row['image'];
 }
 echo json_encode($p);
 
