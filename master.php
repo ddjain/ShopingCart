@@ -474,15 +474,18 @@ function closeNav() {
 <body>
 
 
+
+
+
 <div id="flipkart-navbar">
     <div class="container">
          <div class="row row1">
             <ul class="largenav pull-right">
                 <li class="upper-links"><a class="links"  ></a></li>
-                <li class="upper-links"><a class="links" href="https://campusbox.org/"></a></li>
+                <li class="upper-links"><a class="links" ></a></li>
                 <li class="upper-links"><a class="links"  ></a></li>
                 <li class="upper-links"><a class="links"  > </a></li>
-                <li class='upper-links'>HOME</li>
+                <li class='upper-links' ><a class="links"  href="index.php"> <b>Home</b></a></li>
                 <li class='upper-links'>Welcome 
                 <?php 
             
@@ -565,5 +568,6 @@ function closeNav() {
     <a  >Link</a>
     
 </div>
+
 </body>
 </html>

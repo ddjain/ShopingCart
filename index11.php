@@ -248,20 +248,16 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
         left: 0
     }
 }
-
 #flipkart-navbar {
     background-color: #2874f0;
     color: #FFFFFF;
 }
-
 .row1{
     padding-top: 10px;
 }
-
 .row2 {
     padding-bottom: 20px;
 }
-
 .flipkart-navbar-input {
     padding: 11px 16px;
     border-radius: 2px 0 0 2px;
@@ -269,7 +265,6 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
     outline: 0 none;
     font-size: 15px;
 }
-
 .flipkart-navbar-button {
     background-color: #ffe11b;
     border: 1px solid #ffe11b;
@@ -279,7 +274,6 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
     height: 43px;
     cursor: pointer;
 }
-
 .cart-button {
     background-color: #2469d9;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .23), inset 1px 1px 0 0 hsla(0, 0%, 100%, .2);
@@ -296,13 +290,11 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
     border: none;
     outline: none;
 }
-
 .cart-button:hover{
     text-decoration: none;
     color: #fff;
     cursor: pointer;
 }
-
 .cart-svg {
     display: inline-block;
     width: 16px;
@@ -310,7 +302,6 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
     vertical-align: middle;
     margin-right: 8px;
 }
-
 .item-number {
     border-radius: 3px;
     background-color: rgba(0, 0, 0, .1);
@@ -322,7 +313,6 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
     line-height: 12px;
     margin-left: 10px;
 }
-
 .upper-links {
     display: inline-block;
     padding: 0 11px;
@@ -334,25 +324,20 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
     outline: none;
     font-size: 12px;
 }
-
 .dropdown {
     position: relative;
     display: inline-block;
     margin-bottom: 0px;
 }
-
 .dropdown:hover {
     background-color: #fff;
 }
-
 .dropdown:hover .links {
     color: #000;
 }
-
 .dropdown:hover .dropdown-menu {
     display: block;
 }
-
 .dropdown .dropdown-menu {
     position: absolute;
     top: 100%;
@@ -366,17 +351,14 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
     margin: 0;
     padding: 0px;
 }
-
 .links {
     color: #fff;
     text-decoration: none;
 }
-
 .links:hover {
     color: #fff;
     text-decoration: none;
 }
-
 .profile-links {
     font-size: 12px;
     font-family: 'Roboto', sans-serif;
@@ -386,28 +368,22 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
     padding: 0 11px;
     line-height: 23px;
 }
-
 .profile-li{
     padding-top: 2px;
 }
-
 .largenav {
     display: none;
 }
-
 .smallnav{
     display: block;
 }
-
 .smallsearch{
     margin-left: 15px;
     margin-top: 15px;
 }
-
 .menu{
     cursor: pointer;
 }
-
 @media screen and (min-width: 768px) {
     .largenav {
         display: block;
@@ -419,7 +395,6 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
         margin: 0px;
     }
 }
-
 /*Sidenav*/
 .sidenav {
     height: 100%;
@@ -434,7 +409,6 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
     box-shadow: 0 4px 8px -3px #555454;
     padding-top: 0px;
 }
-
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -443,7 +417,6 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
     display: block;
     transition: 0.3s
 }
-
 .sidenav .closebtn {
     position: absolute;
     top: 0;
@@ -452,16 +425,13 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
     margin-left: 50px;
     color: #fff;        
 }
-
 @media screen and (max-height: 450px) {
   .sidenav a {font-size: 18px;}
 }
-
 .sidenav-heading{
     font-size: 36px;
     color: #fff;
 }
-
 .h2-bg{
     margin: 30px 0;
     background: repeating-linear-gradient(
@@ -483,7 +453,6 @@ function openNav() {
     // document.getElementById("flipkart-navbar").style.width = "50%";
     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
-
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.body.style.backgroundColor = "rgba(0,0,0,0)";
@@ -498,30 +467,24 @@ function closeNav() {
 function addToCart(btn){
 	alert(btn);
 }
-
-
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $http) {
-
 	$http.get("api/user/ShowCategory.php")
 	  .then(function(response) {
 	      $scope.category = response.data;
 	   //   alert(response.data);
 	  });
 	
-
 	
 $scope.addPrduct=function(cid){
 	$http.get("api/user/ShowProducts.php?cid="+cid)
 	  .then(function(response) {
 	      $scope.product = response.data; 
-
 	      $http.get("api/user/GetCategory.php?cid="+cid)
 		  .then(function(response) {
 			 
 		      $scope.cat = response.data; 		 
 		  });
-
 	  
 	  });
 	};
@@ -533,7 +496,6 @@ $scope.myFunc=function(pid){
 	    alert(response.data);
 	      
 	  });
-
 	$http.get("api/user/CartCount.php")
 	  .then(function(response) {
 	      $scope.count = response.data;
@@ -546,7 +508,6 @@ $scope.myFunc=function(pid){
       $scope.product = response.data; 
       $scope.cat = "Electronics"; 
         });
-
 	$http.get("api/user/CartCount.php")
 	  .then(function(response) {
 	      $scope.count = response.data;
