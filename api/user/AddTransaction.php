@@ -24,7 +24,7 @@ class Product{
 					
 				}
 				echo $tid;
-				$_SESSION['tid']=tid;
+				$_SESSION['transaction']=$tid;
 				
 		//TID obtained
 		echo "<table border=1> <tr> <th>tid</th><th>uid</th><th>pid</th><th>qty</th> <th>date</th></tr>";
@@ -34,24 +34,36 @@ class Product{
 							$pid=$_SESSION['cart'][$i];
 							$qty=$_SESSION['cart'][$i+1];
 							$d=date("Y-d-m");
-							$query1="INSERT INTO `transaction`(`tid`, `pid`, `uid`, `qty`, `tdate`) VALUES ($tid,$pid,$uid,$qty,sysdate())";
-							mysqli_query($con, $query1) or die("0");
-							echo "<tr>";
-								echo"<td>$tid</td>";
-								echo"<td>$uid<td>";
-								echo"<td>$pid<td>";
-								echo"<td>$qty<td>";
-							    echo"<td>".date("y-m-d")."<td>";
-								echo "</tr>";
+							
+							
+							//update available product from main database
+							$query3="select * from product where pid=$pid";
+							echo $query3."<br>";
+							$result3=mysqli_query($con,$query3);
+							if($row3=mysqli_fetch_assoc($result3)){
+								$available=$row3['pavailable'];
+								$pname=$row3['pname'];
+								
+							}
+							echo "QTY : $qty    Available:$available <br>";
+							if($qty>$available){
+									echo "not available";	
+								//header("location:../../cart.php?msg=not enough stock for $pid");
+							}
+										$query1="INSERT INTO `transaction`(`tid`, `pid`, `uid`, `qty`, `tdate`) VALUES ($tid,$pid,$uid,$qty,sysdate())";
+										mysqli_query($con, $query1) or die("0");
+							
+							
+						
 								$i++;
 							
 				}
 	$_SESSION['Status']=1;
-	header("location:../../ShowInvoice.php");
+	//header("location:../../ShowInvoice.php");
 }
 else{
 	
-	header("location:../../login.php?msg=Please Login To Continue");
+	//header("location:../../login.php?msg=Please Login To Continue");
 }
 
 ?>

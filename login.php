@@ -1,3 +1,14 @@
+<?php 
+session_start();
+
+if(isset($_SESSION['user'])){
+	if($_SESSION['Status']!=1){
+		header("location:.");
+	}
+	
+}
+
+?>
 <html>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -205,6 +216,10 @@ hr{
                     </label>
                 </div>
                 <button class="btn btn-lg btn-primary" type="submit">Login</button>
+                <label>
+                        <a href="registeruser.php" >Dont Have account? register...</a> <br> Or<br>
+                        <a href="." >Login As Guest</a>
+                    </label>
             </form><!-- /form -->
             <?php 
             	if(isset($_REQUEST['msg'])){

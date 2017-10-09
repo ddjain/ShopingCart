@@ -75,7 +75,7 @@ app.controller('myCtrl', function($scope, $http) {
     <div class="row">
         <div class="col-xs-12">
     		<div class="invoice-title">
-    			<h2>Invoice</h2><h3 class="pull-right">ORDER ID: <?php  echo $_SESSION['tid']; ?></h3>
+    			<h2>Invoice</h2><h3 class="pull-right">ORDER ID: <?php  echo $_SESSION['transaction']; ?></h3>
     		</div>
     		<hr>
     		<div class="row">

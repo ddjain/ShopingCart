@@ -1,11 +1,16 @@
 Remaining Task:
-1.Login for admin (db for admin)
-2.logout for admin
 3.deleteing product from main product table while transaction.
 4.bugs in admin panel in page admin panel target.
-5.update products
+
 6.search button
 7.user detail table modification.
 8.full app testing.
 9. Show product and show categories are not refreshing while insert update and delete
-10.rEGISTRATION PAGE 
+11.delete from session.
+
+
+done
+1.Login for admin (db for admin)
+2.logout for admin
+5.update products
+10.REGISTRATION PAGE 

@@ -12,5 +12,11 @@ $result=mysqli_query($con, $query);
 echo mysqli_error($con)."<br>";
 echo mysqli_errno($con);
 echo "1";
-
+if($result){
+header("location:../../register1.php?msg=Registraion Successfully");
+}
+else{
+header("location:../../register1.php?msg=Registraion Unsuccessfully");
+	
+}
 ?>

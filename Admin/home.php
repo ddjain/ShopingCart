@@ -1,3 +1,10 @@
+<?php 
+
+session_start();
+if(!isset($_SESSION['admin'])){
+	header("Location: index.php?msg=Please Login to Continue");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,9 +88,20 @@ $scope.addProduct=function(){
 	
 	
 };
-$scope.updateDetails=function(pid){
-	alert(pid);
+$scope.updateDetails=function(pid,cid,pname,pprice,pavailable,pdescription,image){
+	
+	$http.get("../api/admin/UpdateSingleProduct.php?pid="+pid+"&pcid="+cid+"&pname="+pname+"&pprice="+pprice+"&pavailable="+pavailable+"&pdes="+pdescription+"&img="+image)
+    .then(function(response) {
+           $scope.uProduct=response.data;
+
+		
+    });
+
+	
 	};
+
+
+	
 $scope.productdetail=function(){
 			//alert($scope.dselectedProduct.pid);
 			$http.get("../api/admin/ShowSingleProduct.php?pid="+$scope.dselectedProduct.pid)
@@ -112,10 +130,12 @@ $scope.productdetail=function(){
 			$http.get("../api/admin/ShowSingleProduct.php?pid="+pid)
 		    .then(function(response) {
 		           $scope.uProduct=response.data;
-     
-				
 		    });
 		};
+
+
+
+		
 		
 });
 </script>
@@ -131,7 +151,7 @@ $scope.productdetail=function(){
   
   <center> <p>ADD,UPDATE & DELETE PRODUCT FROM HERE</p> </center> 
   
-  <div style= "text-align: right; color:brown; font-size: medium; "> <a href="logout.php" ><b>LOGOUT</b></a></div>   
+  <div style= "text-align: right; color:brown; font-size: medium; "> <a href="adminlogout.php" ><b>LOGOUT</b></a></div>   
   <BR>
   <BR>
    
@@ -286,9 +306,9 @@ $scope.productdetail=function(){
 							<form action="../api/admin/UpdateSingleProduct.php">
 			
 								Product Id: <input ng-model="pid" ng-keyup="productdetails(pid)" class="form-control" placeholder="Enter Product ID" type=text name="pid" ng-model="pid" >
-								 
+								 <br><br>
 						
-								<b> Product ID:{{uProduct.pid}}
+								<b> Product ID:{{uProduct.pid}}<br><br>
 								Category ID: <input class="form-control" placeholder=pcid type=text name=pcid ng-model="uProduct.cid" ><br>
 								Product Name: <input class="form-control"  placeholder=pname type=text name=pname ng-model="uProduct.pname"><br>
 								Price :<input class="form-control" placeholder=pprice type=text name=pprice ng-model="uProduct.pprice"><br>
@@ -296,7 +316,7 @@ $scope.productdetail=function(){
 								Description: <input class="form-control" type=text placeholder=des name=pdes ng-model="uProduct.pdescription"><br>
 								Image: <input class="form-control" type=text placeholder=img name=img ng-model="uProduct.image	" ><br>
 								</b>
-								<button ng-click="updateDetails(pid)" type="button" class="btn btn-primary ">UPDATE</button>
+								<button ng-click="updateDetails(pid,uProduct.cid,uProduct.pname,uProduct.pprice,uProduct.pavailable,uProduct.pdescription,uProduct.image)" type="button" class="btn btn-primary ">UPDATE</button>
 						</form>
 					
 					</div>

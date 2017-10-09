@@ -188,13 +188,17 @@ hr{
 <body>
   <div class="container">
    
+   $uname=$_REQUEST['uname'];
+$password=$_REQUEST['password'];
+$address=$_REQUEST['address'];
+$mobile=$_REQUEST['mobile'];
    
    <center> <h1 class="welcome text-center">Welcome to <br> MyKart</h1></center>
         <div class="card card-container">
         <h2 class='login_title text-center'>Register</h2>
         <hr>
 
-            <form class="form-signin"   action=api/user/RegisterUser.php method=post>
+            <form class="form-signin" action=api/user/RegisterUser.php method=post>
                 <span id="reauth-email" class="reauth-email"></span>
                 <p class="input_title">Username</p>
                 <input type="text" id="inputEmail" name=uname class="login_box" placeholder="Username" required autofocus>
@@ -222,7 +226,6 @@ hr{
                         <a href="login.php" >Already Have account? Login...</a>
                     </label>
             </form><!-- /form -->
-            <span id=msg>  </span>
             <?php 
             	if(isset($_REQUEST['msg'])){
             		echo "<font color='red'><center><b> ".$_REQUEST['msg']."<b><center><font>";
