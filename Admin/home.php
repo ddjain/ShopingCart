@@ -77,10 +77,13 @@ $scope.addProduct=function(){
    	 
     });
 
-
-    
+	
+	
 	
 };
+$scope.updateDetails=function(pid){
+	alert(pid);
+	};
 $scope.productdetail=function(){
 			//alert($scope.dselectedProduct.pid);
 			$http.get("../api/admin/ShowSingleProduct.php?pid="+$scope.dselectedProduct.pid)
@@ -100,6 +103,16 @@ $scope.productdetail=function(){
 		    .then(function(response) {
 
 		           alert(response.data);
+				
+		    });
+		};
+
+		$scope.productdetails=function(pid){
+			//alert($scope.dselectedProduct.pid);
+			$http.get("../api/admin/ShowSingleProduct.php?pid="+pid)
+		    .then(function(response) {
+		           $scope.uProduct=response.data;
+     
 				
 		    });
 		};
@@ -260,8 +273,8 @@ $scope.productdetail=function(){
 	<div class="row">
 			
 			<!-- start of coloumn -->
-			<div class="col-sm-6">
-   				<div class="card" style="width: 50rem;">
+			<div class="col-sm-8">
+   				<div class="card" style="width: 100rem;">
 					<div class="card-body">
 						<h2 class="card-title">
 							UPDATE PRODUCTS DETAIL
@@ -272,17 +285,18 @@ $scope.productdetail=function(){
 							
 							<form action="../api/admin/UpdateSingleProduct.php">
 			
-								Product Id: <input ng-model="pid" class="form-control" placeholder=ProductId type=text name="pid" ng-model="pid" >
-								 <button ng-click="productdetails(pid)" type="button" class="btn btn-primary ">DELETE</button>
+								Product Id: <input ng-model="pid" ng-keyup="productdetails(pid)" class="form-control" placeholder="Enter Product ID" type=text name="pid" ng-model="pid" >
+								 
 						
-								Pid:{{pid}}
-								<input class="form-control" placeholder=pcid type=text name=pcid ng-model="cid" ><br>
-								<input class="form-control"  placeholder=pname type=text name=pname ng-model="pname"><br>
-								<input class="form-control" placeholder=pprice type=text name=pprice ng-model="pprice"><br>
-								<input class="form-control" type=text placeholder=pavailable name=pavailable ng-model="pavailable"><br>
-								<input class="form-control" type=text placeholder=des name=pdes ng-model="pdescription"><br>
-								<input class="form-control" type=text placeholder=img name=img><br>
-								<input type=submit>
+								<b> Product ID:{{uProduct.pid}}
+								Category ID: <input class="form-control" placeholder=pcid type=text name=pcid ng-model="uProduct.cid" ><br>
+								Product Name: <input class="form-control"  placeholder=pname type=text name=pname ng-model="uProduct.pname"><br>
+								Price :<input class="form-control" placeholder=pprice type=text name=pprice ng-model="uProduct.pprice"><br>
+								Availability: <input class="form-control" type=text placeholder=pavailable name=pavailable ng-model="uProduct.pavailable"><br>
+								Description: <input class="form-control" type=text placeholder=des name=pdes ng-model="uProduct.pdescription"><br>
+								Image: <input class="form-control" type=text placeholder=img name=img ng-model="uProduct.image	" ><br>
+								</b>
+								<button ng-click="updateDetails(pid)" type="button" class="btn btn-primary ">UPDATE</button>
 						</form>
 					
 					</div>
