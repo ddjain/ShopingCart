@@ -9,6 +9,7 @@ bugs
 Remaining Task:
 
 1.full app testing.
+2.Admin Validation.
 
 done
 

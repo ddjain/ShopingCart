@@ -69,7 +69,7 @@ $scope.addCategory=function(){
 };
 
 $scope.addProduct=function(){
-	$http.get("../api/admin/AddProduct.php?pcid="+$scope.AselectedName.cid+"&pname="+$scope.apname+"&pprice="+$scope.apprice+"&pdis="+$scope.apdis+"&pavailable="+$scope.apavl+"&pdes="+$scope.apdes+"&img=bbb"+$scope.apimg)
+	$http.get("../api/admin/AddProduct.php?pcid="+$scope.AselectedName.cid+"&pname="+$scope.apname+"&pprice="+$scope.apprice+"&pdis="+$scope.apdis+"&pavailable="+$scope.apavl+"&pdes="+$scope.apdes+"&img="+$scope.apimg)
     .then(function(response) {
 
            alert( response.data);
