@@ -100,7 +100,7 @@ app.controller('myCtrl', function($scope, $http) {
     			<div class="col-xs-6 text-right">
     				<address>
     					<strong>Order Date:</strong><br>
-    					Oct 4, 2017<br><br>
+    					<?php echo date("M d Y"); ?><br><br>
     				</address>
     			</div>
     		</div>

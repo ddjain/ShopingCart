@@ -53,24 +53,17 @@ if(isset($_SESSION['user'])){
 		}
 			
 		$i++;
-			
+					//Adding Transaction			
 					$query1="INSERT INTO `transaction`(`tid`, `pid`, `uid`, `qty`, `tdate`) VALUES ($tid,$pid,$uid,$qty,sysdate())";
 					mysqli_query($con, $query1) or die("0");
-						
-						
 					//update availablity of products from main product table
 						
 					$query3="UPDATE product SET pavailable=pavailable-$qty WHERE pid=$pid";
 					mysqli_query($con, $query3) or die("0");
-					
-			
-		
 		
 	}
 	$_SESSION['Status']=1;
 	header("location:../../ShowInvoice.php");
-
-	
 	
 }
 else{

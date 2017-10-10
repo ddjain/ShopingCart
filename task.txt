@@ -1,24 +1,21 @@
 Further Extensions
-
+1.search button
+2.user detail table modification. (User table should consist address1,address2, city, state,pincode,email)
 bugs
-
+1. Show product and show categories are not refreshing while insert update and delete
+2. Image is not loading after updating quantity of product 
+3.bugs in admin panel in page admin panel target.
 
 Remaining Task:
-4.bugs in admin panel in page admin panel target.
 
-6.search button
-7.user detail table modification.
-8.full app testing.
-9. Show product and show categories are not refreshing while insert update and delete
-
-
+1.full app testing.
 
 done
 
-3.deleteing product from main product table while transaction.
-11.delete from session.
-1.Login for admin (db for admin)
-2.logout for admin
+1.deleteing product from main product table while transaction.
+2.delete from session.
+3.Login for admin (db for admin)
+4.logout for admin
 5.update products
-10.REGISTRATION PAGE 
-12.if products availablity is lesser.. your should not be able to proceed to checkout
+6.REGISTRATION PAGE 
+7.if products availablity is lesser.. your should not be able to proceed to checkout
