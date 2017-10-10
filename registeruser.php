@@ -2,6 +2,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <style>
 
 body, html {
@@ -185,44 +187,70 @@ hr{
 
  <script src="https://use.typekit.net/ayg4pcz.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
-<body>
+    <script>
+
+function validate(){
+var usr=document.getElementById("inputEmail").value;
+var pws=document.getElementById("inputPassword").value;
+var cpws=document.getElementById("inputCPassword").value;
+var mobile=document.getElementById("inputMobile").value;
+var address=document.getElementById("inputAdd").value;
+
+if(address==="")
+{
+
+	alert("ALL FILEDS ARE COMPULSORY");
+	return false;
+
+}
+else{
+	alert("SENDING");
+	false;
+}
+
+
+}
+    
+    </script>
+    
+    
+<body ng-app>
+
   <div class="container">
    
-   $uname=$_REQUEST['uname'];
-$password=$_REQUEST['password'];
-$address=$_REQUEST['address'];
-$mobile=$_REQUEST['mobile'];
+ 
    
    <center> <h1 class="welcome text-center">Welcome to <br> MyKart</h1></center>
         <div class="card card-container">
         <h2 class='login_title text-center'>Register</h2>
         <hr>
 
-            <form class="form-signin" action=api/user/RegisterUser.php method=post>
+            <form class="form-signin" action=api/user/RegisterUser.php method=post onsubmit="return validate()">
                 <span id="reauth-email" class="reauth-email"></span>
                 <p class="input_title">Username</p>
                 <input type="text" id="inputEmail" name=uname class="login_box" placeholder="Username" required autofocus>
                 
                 <p class="input_title">Password</p>
-                <input type="password" id="inputPassword" name=password class="login_box" placeholder="******" required>
+                <input type="password" id="inputPassword" ng-model="p" name=password class="login_box" placeholder="******" required>
                 <div id="remember" class="checkbox">
                
                 <p class="input_title">CPassword</p>
-                <input type="password" id="inputPassword" name=cpassword class="login_box" placeholder="******" required>
+                <input type="password" id="inputCPassword"  ng-model="cp" name=cpassword class="login_box" placeholder="******" required>
                 <div id="remember" class="checkbox">
                
                
                <p class="input_title">Mobile</p>
-                <input type="number" id="inputEmail" name=mobile class="login_box" placeholder="mobile" required autofocus>
+                <input type="number" id="inputMobile" name=mobile class="login_box" placeholder="mobile" required autofocus>
                
                 <p class="input_title">Address</p>
-                <input type="text" id="inputEmail" name=address class="login_box" placeholder="Address" required autofocus>
+                <input type="text" id="inputAdd" name=address class="login_box" placeholder="Address" required autofocus>
                
                
                     
                 </div>
                 <button class="btn btn-lg btn-primary" type="submit">Register</button>
                 <label>
+                
                         <a href="login.php" >Already Have account? Login...</a>
                     </label>
             </form><!-- /form -->

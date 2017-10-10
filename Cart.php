@@ -1,6 +1,6 @@
 <?php session_start();
 if(!isset($_SESSION['cart'])){
-	echo "<script>alert('Nothing is in yout Cart go back to shop')</script>";
+	echo "<script>alert('Nothing is in yout Cart go back to shop');window.location = 'index.php';  </script>";
 }
 ?>
 
@@ -17,6 +17,8 @@ if(!isset($_SESSION['cart'])){
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script type="text/javascript" src="http://yourjavascript.com/71712155041/responsive-bootstrap-carousel.js"></script>
 <script>
+
+
 function prints(){
 	  window.print();
 }
