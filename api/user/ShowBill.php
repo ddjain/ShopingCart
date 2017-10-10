@@ -7,6 +7,7 @@ class Product{
 	public $pprice="";
 	public $qty="";
 	public $img="";
+	public $avl="";	
 	public $ptotal="";
 	public $discount="";
 	
@@ -26,7 +27,11 @@ session_start();
 					$p->pid=$row['pid'];
 					$p->pname=$row['pname'];
 					$p->pprice=$row['pprice'];
+					$p->pprice=$row['pprice'];
+					
 					$p->qty=$qty;
+					$p->avl=$row['pavailable'];
+					
 					$p->ptotal=$row['pprice']*$qty;
 					$p->discount=$row['discount'];
 					$p->img=$row['image'];	

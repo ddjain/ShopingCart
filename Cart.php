@@ -34,11 +34,17 @@ app.controller('myCtrl', function($scope, $http) {
   .then(function(response) {
       $scope.products = response.data;
       var grand=0;
+      var flag=1;
       for(i=0;i<response.data.length;i++){
-    	  grand=grand+response.data[i].ptotal
+    	 if( response.data[i].qty>response.data[i].avl)
+    	 {
+			flag=0;
+           	 }
+    	  grand=grand+response.data[i].ptotal;
       }
       
       $scope.grand=grand;
+      $scope.flag=flag;
       
   });
 
@@ -83,6 +89,7 @@ require 'master.php';
                         </td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>{{x.pprice}} Rs.</strong></td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>{{x.ptotal}} Rs.</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><div ng-if="x.qty>x.avl" ><strong><font color=red>Sorry Product Stock is less then your demand</font></strong></div></td>
                         
                     </tr>
                     
@@ -116,7 +123,7 @@ require 'master.php';
                             <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
                         </button></td>
                         <td>
-                        <button type="button" class="btn btn-success" onclick='window.location.href = "api/user/AddTransaction.php";'>
+                        <button  ng-if="flag==1" type="button" class="btn btn-success" onclick='window.location.href = "api/user/AddTransaction.php";'>
                             Checkout <span class="glyphicon glyphicon-play"></span>
                         </button></td>
                     </tr>

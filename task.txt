@@ -1,16 +1,24 @@
+Further Extensions
+
+bugs
+
+
 Remaining Task:
-3.deleteing product from main product table while transaction.
 4.bugs in admin panel in page admin panel target.
 
 6.search button
 7.user detail table modification.
 8.full app testing.
 9. Show product and show categories are not refreshing while insert update and delete
-11.delete from session.
+
 
 
 done
+
+3.deleteing product from main product table while transaction.
+11.delete from session.
 1.Login for admin (db for admin)
 2.logout for admin
 5.update products
 10.REGISTRATION PAGE 
+12.if products availablity is lesser.. your should not be able to proceed to checkout

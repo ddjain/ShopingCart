@@ -548,7 +548,8 @@ require 'master.php';
                 
                 <div class="space-ten"></div>
                 <div class="btn-ground text-center">
-                    <button ng-click="myFunc(x.pid)" type="button" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add To Cart</button>
+                    <button ng-if="x.pavailable>0" ng-click="myFunc(x.pid)" type="button" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add To Cart</button>
+                <div " ng-if="x.pavailable==0"><font color=red> <strong> OUT OFF STOCK  </strong> </font> </div>
                 </div>
                 <div class="space-ten"></div>
               </div>
